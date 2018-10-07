@@ -1,8 +1,8 @@
-#include <SFML/Graphics.hpp>
+#include "Game.hpp"
 
 int main(int argc, const char** argv) {
 	
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	/*sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
@@ -20,5 +20,8 @@ int main(int argc, const char** argv) {
 		window.display();
 	}
 
-	return 0;
+	return 0;*/
+	Game game;
+	game.Run();
+	return EXIT_SUCCESS;
 }
