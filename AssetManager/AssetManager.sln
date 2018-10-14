@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28010.2026
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssetManager", "AssetManager\AssetManager.vcxproj", "{66288BA2-1918-4211-90DF-6E4B2D33BB7F}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C04AB942-3CD5-440B-8795-9F646FFBB9E1}
+		SolutionGuid = {FFA5AFF5-F6D5-428D-BD0C-E219095441B4}
 	EndGlobalSection
 EndGlobal

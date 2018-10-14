@@ -90,14 +90,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\Projects\College\Semester7\GameDevelopmentInCpp\SFML-2.5.0\include;$(ProjectDir)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Projects\College\Semester7\GameDevelopmentInCpp\SFML-2.4.2\include;$(ProjectDir)\lib\;$(ProjectDir)\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>E:\Projects\College\Semester7\GameDevelopmentInCpp\SFML-2.5.0\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-system.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Projects\College\Semester7\GameDevelopmentInCpp\SFML-2.4.2\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;sfml-audio.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;freetype.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -130,9 +130,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="lib\imgui-sfml\imgui-SFML.cpp" />
+    <ClCompile Include="lib\imgui\imgui.cpp" />
+    <ClCompile Include="lib\imgui\imgui_demo.cpp" />
+    <ClCompile Include="lib\imgui\imgui_draw.cpp" />
+    <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\AssetManager.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Logger.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\TiledMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="media\data\forestin.csv" />
@@ -154,6 +161,18 @@
   <ItemGroup>
     <ClInclude Include="include\AssetManager.hpp" />
     <ClInclude Include="include\Game.hpp" />
+    <ClInclude Include="include\Logger.hpp" />
+    <ClInclude Include="include\TiledMap.hpp" />
+    <ClInclude Include="lib\imgui-sfml\imconfig-SFML.h" />
+    <ClInclude Include="lib\imgui-sfml\imgui-SFML.h" />
+    <ClInclude Include="lib\imgui\imconfig.h" />
+    <ClInclude Include="lib\imgui\imgui.h" />
+    <ClInclude Include="lib\imgui\imgui_internal.h" />
+    <ClInclude Include="lib\imgui\imstb_rectpack.h" />
+    <ClInclude Include="lib\imgui\imstb_textedit.h" />
+    <ClInclude Include="lib\imgui\imstb_truetype.h" />
+    <ClInclude Include="lib\json\nlohmann\json.hpp" />
+    <ClInclude Include="lib\nlohmann\json.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
