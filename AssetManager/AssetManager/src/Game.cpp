@@ -11,9 +11,11 @@ Game::Game() : window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Asset Manager
 	//sf::IntRect s1;
 	//list1.emplace_back(s1);
 	//assetManager.LoadTileMap("D:\Projects\College\Semester7\GameDevelopmentInCpp\AssetManager\AssetManager\media\images", "tileset.png", list1);
-	bool r = assetManager.LoadTexture("./media/images/", "cute_image.jpg");
+	//bool r = assetManager.LoadTexture("./media/images/", "cute_image.jpg");
 	//std::cout << r << std::endl;
 	//system("pause");
+	std::vector<sf::Vertex> s;
+	assetManager.LoadTileMap("./media/images/", "tileset.png", s);
 }
 
 void Game::Init() {
@@ -78,6 +80,7 @@ void Game::Render() {
 
 	window.clear(bgColor);
 	window.draw(s);
+	window.draw(assetManager.GetTiledMap());
 	ImGui::SFML::Render(window);
 	window.display();
 }

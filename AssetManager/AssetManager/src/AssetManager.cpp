@@ -1,7 +1,26 @@
 #include <stdexcept>
 #include "AssetManager.hpp"
 
-AssetManager::AssetManager() {}
+AssetManager::AssetManager() {
+	level = {
+		0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
+		1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
+		0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
+		0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0, 0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
+		0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
+		2, 0, 1, 10, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,2, 0, 1, 10, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
+		0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,
+		0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0,
+		1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3,
+		0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,0, 1, 0, 0, 2, 0, 3, 3, 3, 0, 1, 1, 1, 0, 0, 0,
+		0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0, 0, 1, 1, 0, 3, 3, 3, 0, 0, 0, 1, 1, 1, 2, 0, 0,
+		0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,0, 0, 1, 0, 3, 0, 2, 2, 0, 0, 1, 1, 1, 1, 2, 0,
+		2, 0, 1, 10, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,2, 0, 1, 10, 3, 0, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1,
+		0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1,0, 0, 1, 0, 3, 2, 2, 2, 0, 0, 0, 0, 1, 1, 1, 1
+	};
+}
 
 AssetManager::~AssetManager() {}
 
@@ -77,18 +96,17 @@ bool AssetManager::LoadSprite(const std::string &path, const std::string &name) 
 	return result;
 }
 
-//bool AssetManager::LoadTileMap(const std::string &path, const std::string &name, std::vector<sf::Vertex>& mapSizes) {
-//
-//	bool result = LoadResource(path, name, textures);
-//
-//	if (result) {
-//		tiledMaps.emplace_back(TiledMap(name, mapSizes));
-//	} else {
-//		Logger::Write("Failed to load asset at path \"" + path + "\" name \"" + name + "\"");
-//	}
-//
-//	return result;
-//}
+bool AssetManager::LoadTileMap(const std::string &path, const std::string &name, std::vector<sf::Vertex>& mapSizes) {
+
+	bool result = LoadResource(path, name, textures);
+	if (result) {
+		tiledMap.Init(*GetTexture(name), level, sf::Vector2u(32, 32));
+	} else {
+		Logger::Write("Failed to load asset at path \"" + path + "\" name \"" + name + "\"");
+	}
+
+	return result;
+}
 
 bool AssetManager::LoadSound(const std::string &path, const std::string &name) {
 	return LoadResource(path, name, sounds);
@@ -96,6 +114,10 @@ bool AssetManager::LoadSound(const std::string &path, const std::string &name) {
 
 bool AssetManager::LoadFont(const std::string &path, const std::string &name) {
 	return LoadResource(path, name, fonts);
+}
+
+TiledMap& AssetManager::GetTiledMap() {
+	return tiledMap;
 }
 
 template<class T>
