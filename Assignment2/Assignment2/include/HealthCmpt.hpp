@@ -1,0 +1,4 @@
+#ifndef HEALTHCMPT_HPP
+#define HEALTHCMPT_HPP
+
+#endif // !AICMPT_HPP

@@ -1,0 +1,4 @@
+#ifndef PLAYERINPUTCMPT_HPP
+#define PLAYERINPUTCMPT_HPP
+
+#endif // !AICMPT_HPP

@@ -1,0 +1,4 @@
+#ifndef GRAPHICSCMPT_HPP
+#define GRAPHICSCMPT_HPP
+
+#endif // !AICMPT_HPP
